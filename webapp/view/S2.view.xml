@@ -1,0 +1,12 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ovly.navigation-ui5.controller.S2"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="app" title="Empregados" showNavButton="true" navButtonPress="onNavButtonPress">
+		<content>
+			<List items="{/Employees}">
+				<items>
+					<ObjectListItem title="{Name}" number="{Age}" numberUnit="Anos" type="Navigation"/>
+				</items>
+			</List>
+		</content>
+	</Page>
+</mvc:View>
