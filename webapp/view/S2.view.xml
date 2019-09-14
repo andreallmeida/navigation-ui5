@@ -1,11 +1,14 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ovly.navigation-ui5.controller.S2"
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	
-	<Page id="app" title="Empregados" showNavButton="true" navButtonPress="onNavButtonPress">
+	<Page id="app" title="Empregados" showNavButton="{device>/system/phone}" navButtonPress="onNavButtonPress">
 		<content>
-			<List items="{/Employees}">
+			
+			<ObjectHeader intro="{Team_Identifier}" title="{Name}" number="{Member_Count}" numberUnit="Pessoas"/>
+			
+			<List items="{Team_Members}">
 				<items>
-					<ObjectListItem title="{Name}" number="{Age}" numberUnit="Anos" type="Navigation"/>
+					<ObjectListItem title="{Name}" intro="{Id}" number="{Age}" numberUnit="Anos" type="Navigation"/>
 				</items>
 			</List>
 		</content>

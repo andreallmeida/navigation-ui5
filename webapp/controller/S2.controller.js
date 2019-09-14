@@ -12,7 +12,37 @@ sap.ui.define([
 		 * @memberOf ovly.navigation-ui5.view.S2
 		 */
 		onInit: function () {
+			
+			// o this neste ponto não conhece o COMPONENT.JS
+			
+			// Usando o getOwnerComponent, recuperamos o COMPONENT.JS
+			
+			// No Component.JS, temos o metodo para recuperar as Rotas ---getRouter---
+			
+			// Podemos posicionar uma roda através do metodo - getRoute
+			
+			// Na rota recuperada, registramos um metodo local para ser executada via call back no evento
+			// informando o próprio controller da view como LISTENER ---PatternMatched---
+			this.getOwnerComponent().getRouter().getRoute("equipe").attachPatternMatched(this.onPatternMatched, this);
 
+		},
+		
+		onPatternMatched: function(oEvent){
+			
+			// Identifica os parametros
+			var oParameters = oEvent.getParameters();
+			
+			// Identifica o Argumento
+			var oArguments = oParameters.arguments;
+			
+			// Identifica o parametro da Rota
+			var sIdEquipe = oArguments.idEquipe;
+			
+			// alert("Time: " + sIdEquipe);
+			
+			this.getView().bindElement({
+				path: "/Teams('" + sIdEquipe + "')"
+			});
 		},
 
 		onNavButtonPress: function () {

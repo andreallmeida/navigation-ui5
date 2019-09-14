@@ -91,28 +91,38 @@
 				"viewPath": "ovly.navigation-ui5.view",
 				"controlAggregation": "masterPages",
 				"controlId": "app",
-				"clearControlAggregation": false
+				"clearControlAggregation": false,
+				"transition": "slide",
+				"bypassed": {
+					"target": ["Empty", "S1"]
+				}
+
 			},
 			"routes": [{
 				"name": "inicial",
 				"pattern": "",
-				"target": ["S1"]
-			},
-			{
+				"target": [
+					"Empty", "S1"
+				]
+			}, {
 				"name": "equipe",
-				"pattern": "equipe",
-				"target": ["S2"]
-			}
-			
-			],
+				"pattern": "equipe/{idEquipe}",
+				"target": [
+					"S1", "S2"
+				]
+			}],
 			"targets": {
 				"S1": {
-					"viewType": "XML",
 					"viewName": "S1"
 				},
 				"S2": {
-					"viewType": "XML",
 					"viewName": "S2",
+					"controlAggregation": "detailPages"
+
+				},
+				"Empty": {
+					"viewType": "JS",
+					"viewName": "Empty",
 					"controlAggregation": "detailPages"
 				}
 			}
